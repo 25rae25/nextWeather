@@ -4,7 +4,7 @@ import { getCurrentWeather } from "@/utils/getCurrentWeather";
 
 
 export default async function Home() {
-	const res = await getCurrentWeather()
+	const res = await getCurrentWeather('seoul')
 
 	console.log(res)
 
@@ -14,6 +14,7 @@ export default async function Home() {
 			<ul className={style.list}>
 				<li>
 					<Link href="/seoul">서울</Link>
+					<span>{res.current.condition.text}</span>
 				</li>
 				<li>
 					<Link href="/newyork">뉴욕</Link>
