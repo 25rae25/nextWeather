@@ -1,3 +1,5 @@
+import style from './home.module.css'
+
 export default function Loading() {
-	return <>로딩 중</>
+	return <div className={style.loading}>로딩중</div>
 }

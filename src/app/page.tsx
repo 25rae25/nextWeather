@@ -1,4 +1,4 @@
-import style from './style.module.css'
+import style from './home.module.css'
 import RevalidateButton from "@/components/RevalidateButton";
 import CurrentWeatherItem from "@/components/CurrentWeatherItem";
 
@@ -12,19 +12,23 @@ export default async function Home() {
 
 	return (
 		<>
-			<h1>날씨앱</h1>
-			<RevalidateButton tag={'time'} />
-			<ul className={style.list}>
-				{cities.map((city) => {
-					return(
-						<CurrentWeatherItem 
-							key={city.code}
-							cityCode={city.code}
-							cityName={city.name}
-						/>
-					)
-				})}
-			</ul>
+			<div className={style.container}>
+				<h1 className={style.title}>날씨앱</h1>
+				<div className={style.button_wrap}>
+				<RevalidateButton tag={'time'} />
+				</div>
+				<ul className={style.list}>
+					{cities.map((city) => {
+						return(
+							<CurrentWeatherItem 
+								key={city.code}
+								cityCode={city.code}
+								cityName={city.name}
+							/>
+						)
+					})}
+				</ul>
+			</div>
 		</>
 	);
 }

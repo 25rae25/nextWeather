@@ -1,0 +1,37 @@
+.list {
+	list-style: none;
+	padding: 0;
+	margin-top: 200px;
+}
+
+.list li {
+	font-size: 2rem;
+	line-height: 1.5;
+	text-align: center;
+	padding: 20px 0;
+}
+
+.container {
+	width: 80%;
+	margin: 0px auto;
+	margin-top: 50px;
+}
+
+.title {
+	text-align: center;
+}
+
+.button_wrap {
+	text-align: center;
+}
+
+.button {
+	display: block;
+	margin: 0 auto;
+}
+
+.loading {
+	text-align: center;
+	font-size: 4rem;
+	padding-top: 200px;
+}

@@ -1,11 +1,13 @@
 import Image from 'next/image'
 import { getTime } from '@/utils/getTime'
 
+
 type Props = {
 	timeZone: string
 	conditionText: string
 	conditionIcon: string
 }
+
 
 export default async function CurrentWeatherCondition({
 	timeZone,
@@ -22,8 +24,8 @@ console.log(conditionIcon)
 			<Image
 				src={`https:${conditionIcon}`}
 				alt={conditionText}
-				width={16}
-				height={16}
+				width={50}
+				height={50}
 			/>
 		</>
 	)

@@ -28,30 +28,32 @@ export default async function Detail({ params, searchParams }: Props) {
 
   return (
 	<>
-	  <h1>{name}의 3일 예보</h1>
-	  <div className={style.buttonGroup}>
-		<HomeButton />
-		<RevalidateButton tag="time" />
+	  <div className={style.container}>
+	  	<h1>{name}의 3일 예보</h1>
+		  <div className={style.buttonGroup}>
+			<HomeButton />
+			<RevalidateButton tag="time" />
+		  </div>
+		  <div className={style.header}>
+			<span className={style.live_title}>현재 날씨 -</span>{' '}
+			<CurrentWeatherCondition
+			  timeZone={location.tz_id}
+			  conditionText={current.condition.text}
+			  conditionIcon={current.condition.icon}
+			/>
+		  </div>
+		  <ul className={style.list}>
+			{forecast.forecastday.map((day) => (
+			  <ForecastItem
+				key={day.date}
+				date={day.date}
+				temperature={day.day.avgtemp_c}
+				conditionText={day.day.condition.text}
+				conditionIcon={day.day.condition.icon}
+			  />
+			))}
+		  </ul>
 	  </div>
-	  <div className={style.header}>
-		<span>현재 날씨 -</span>{' '}
-		<CurrentWeatherCondition
-		  timeZone={location.tz_id}
-		  conditionText={current.condition.text}
-		  conditionIcon={current.condition.icon}
-		/>
-	  </div>
-	  <ul>
-		{forecast.forecastday.map((day) => (
-		  <ForecastItem
-			key={day.date}
-			date={day.date}
-			temperature={day.day.avgtemp_c}
-			conditionText={day.day.condition.text}
-			conditionIcon={day.day.condition.icon}
-		  />
-		))}
-	  </ul>
 	</>
   )
 }
